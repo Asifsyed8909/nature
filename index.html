@@ -1,0 +1,350 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TerraVerde | Protecting Our Natural World</title>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #2b3a2e;
+      background-color: #f6f9f6;
+      line-height: 1.6;
+    }
+
+    /* Navigation Bar */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(24, 48, 32, 0.92);
+      backdrop-filter: blur(6px);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {  
+ font-size: 1.5rem;
+      font-weight: 700;
+      color: #a3e635;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #a3e635;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(15, 35, 22, 0.55), rgba(15, 35, 22, 0.65)),
+        url('https://unsplash.com')
+        center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #ffffff;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      max-width: 800px;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 620px;
+      margin-bottom: 2rem;
+      color: #e2ede4;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      background-color: #4d7c0f;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 30px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #3f6212;
+      transform: translateY(-2px);
+    }
+
+    /* Section Layout */
+    section {
+      padding: 5rem 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #1b4332;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 3.5rem auto;
+      color: #526656;
+    }
+
+    /* Initiatives Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .card-body h3 {
+      color: #1b4332;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-body p {
+      color: #526656;
+      font-size: 0.95rem;
+    }
+
+    /* About / Impact Banner */
+    .impact {
+      background-color: #1b4332;
+      color: #ffffff;
+      border-radius: 16px;
+      margin: 0 8% 5rem 8%;
+      padding: 4rem 6%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .impact-text {
+      flex: 1 1 400px;
+    }
+
+    .impact-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #a3e635;
+    }
+
+    .stats {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-box h3 {
+      font-size: 2.2rem;
+      color: #a3e635;
+    }
+
+    .stat-box p {
+      font-size: 0.9rem;
+      color: #d8f3dc;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.9rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #112a1e;
+      color: #b7e4c7;
+      text-align: center;
+      padding: 2rem 5%;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Tweaks */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      nav ul {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <a href="#" class="logo">🌿 TerraVerde</a>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#initiatives">Initiatives</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#contact">Join Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Reconnect With Nature &amp; Protect Our Earth</h1>
+    <p>Explore wild landscapes, support reforestation projects, and learn how small daily choices preserve biodiversity for future generations.</p>
+    <a href="#initiatives" class="btn">Explore Our Mission</a>
+  </section>
+
+  <!-- Initiatives Section -->
+  <section id="initiatives">
+    <h2 class="section-title">Our Core Initiatives</h2>
+    <p class="section-subtitle">Focused programs dedicated to restoring ecosystems, protecting endangered habitats, and promoting sustainable living.</p>
+
+    <div class="grid">
+      <div class="card">
+        <img src="https://unsplash.com" alt="Lush green forest" />
+        <div class="card-body">
+          <h3>Reforestation</h3>
+          <p>Planting native tree species across degraded woodlands to rebuild carbon sinks and restore natural wildlife corridors.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://unsplash.com" alt="Clean ocean waves" />
+        <div class="card-body">
+          <h3>Ocean Conservation</h3>
+          <p>Organizing coastal cleanups and protecting marine sanctuaries to keep coral reefs and ocean ecosystems thriving.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://unsplash.com" alt="Wild fox in nature" />
+        <div class="card-body">
+          <h3>Wildlife Protection</h3>
+          <p>Partnering with local rangers and researchers to monitor endangered populations and prevent habitat loss.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Banner -->
+  <div class="impact" id="impact">
+    <div class="impact-text">
+      <h2>Together, Every Action Counts</h2>
+      <p>Since 2020, volunteers and conservationists worldwide have united to restore damaged landscapes and protect vulnerable species.</p>
+    </div>
+    <div class="stats">
+      <div class="stat-box">
+        <h3>120K+</h3>
+        <p>Trees Planted</p>
+      </div>
+      <div class="stat-box">
+        <h3>45</h3>
+        <p>Protected Reserves</p>
+      </div>
+      <div class="stat-box">
+        <h3>18K</h3>
+        <p>Active Volunteers</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact / Volunteer Section -->
+  <section id="contact">
+    <h2 class="section-title">Get Involved</h2>
+    <p class="section-subtitle">Sign up to volunteer at local conservation events or receive our monthly nature journal.</p>
+
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for joining TerraVerde!');">
+      <input type="text" placeholder="Your Full Name" required />
+      <input type="email" placeholder="Your Email Address" required />
+      <textarea rows="4" placeholder="How would you like to help?"></textarea>
+      <button type="submit" class="btn">Join the Movement</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 TerraVerde Nature Initiative. Crafted for a greener tomorrow.</p>
+  </footer>
+
+</body>
+</html>
